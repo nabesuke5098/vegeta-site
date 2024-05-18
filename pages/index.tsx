@@ -63,7 +63,7 @@ const Home: NextPage = ({ images }: { images: ImageProps[] }) => {
               Vegeta the Cat Photos
             </h1>
             <p className="max-w-[40ch] text-white/75 sm:max-w-[32ch]">
-              My name is Vegeta. Born in Okinawa. Be a fan and support me!!!
+              My name is Vegeta. Born in Okinawa. <br />Be a fan and support me!!!
             </p>
             <div style={{ display: "flex", justifyContent: "space-between" }}>
               <a
