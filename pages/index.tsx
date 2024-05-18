@@ -57,6 +57,7 @@ const Home: NextPage = ({ images }: { images: ImageProps[] }) => {
             <div style={{ display: "flex", justifyContent: "space-between" }}>
               <a
                 className="pointer z-10 mt-6 rounded-lg border border-white bg-white px-3 py-2 text-sm font-semibold text-black transition hover:bg-white/10 hover:text-white md:mt-4"
+                style={{ marginRight: '20px' }}
                 href="https://www.youtube.com/@nabesuke_vegeta"
                 target="_blank"
                 rel="noreferrer"
