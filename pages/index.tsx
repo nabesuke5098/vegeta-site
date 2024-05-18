@@ -18,6 +18,17 @@ const Home: NextPage = ({ images }: { images: ImageProps[] }) => {
 
   const lastViewedPhotoRef = useRef<HTMLAnchorElement>(null);
 
+  // 配列をランダムに並び替える関数
+  const shuffleArray = (array: ImageProps[]) => {
+    for (let i = array.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [array[i], array[j]] = [array[j], array[i]];
+    }
+    return array;
+  };
+
+  const shuffledImages = shuffleArray(images);
+
   useEffect(() => {
     // This effect keeps track of the last viewed photo in the modal to keep the index page in sync when the user navigates back
     if (lastViewedPhoto && !photoId) {
@@ -57,7 +68,7 @@ const Home: NextPage = ({ images }: { images: ImageProps[] }) => {
             <div style={{ display: "flex", justifyContent: "space-between" }}>
               <a
                 className="pointer z-10 mt-6 rounded-lg border border-white bg-white px-3 py-2 text-sm font-semibold text-black transition hover:bg-white/10 hover:text-white md:mt-4"
-                style={{ marginRight: '20px' }}
+                style={{ marginRight: "20px" }}
                 href="https://www.youtube.com/@nabesuke_vegeta"
                 target="_blank"
                 rel="noreferrer"
@@ -74,7 +85,7 @@ const Home: NextPage = ({ images }: { images: ImageProps[] }) => {
               </a>
             </div>
           </div>
-          {images.map(({ id, public_id, format, blurDataUrl }) => (
+          {shuffledImages.map(({ id, public_id, format, blurDataUrl }) => (
             <Link
               key={id}
               href={`/?photoId=${id}`}
