@@ -1,0 +1,16 @@
+name: Daily Deploy
+
+on:
+  schedule:
+    - cron: '0 0 * * *' # 毎日00:00に実行
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Trigger Vercel Deploy Hook
+        run: curl -X POST https://api.vercel.com/v1/integrations/deploy/prj_Pajsy7bo8nCU34IC3HUHpUVUs9C5/Y8egnbvhHa
